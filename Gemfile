@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 
 ruby '>= 3.0'
 
+
+##### Upgrade to ruby 3  Roadmap v4.1.0
+gem 'rexml'
 # ===========#
 # CORE RAILS #
 # ===========#
@@ -27,6 +30,9 @@ gem 'jsbundling-rails'
 # Use Tailwind CSS, Bootstrap, Bulma, PostCSS, or Dart Sass to bundle and process your CSS
 # Read more: https://github.com/rails/cssbundling-rails
 gem 'cssbundling-rails'
+#to make Dart Sass work Roadmap v4.1.0
+gem 'sassc', '~> 2.0'
+gem 'rss'
 
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript..
 # Read more: https://github.com/hotwired/turbo-rails
@@ -64,7 +70,7 @@ gem 'rollbar', group: :rollbar, require: false
 # (http://github.com/brianmario/mysql2)
 gem 'mysql2', group: :mysql, require: false
 
-# Pg is the Ruby interface to the {PostgreSQL
+#  is the Ruby interface to the {PostgreSQL
 # RDBMS}[http://www.postgresql.org/](https://bitbucket.org/ged/ruby-pg)
 gem 'pg', group: :pgsql, require: false
 
@@ -201,6 +207,8 @@ gem 'activerecord_json_validator'
 # We will need to check if it's fixed when we migrate to Ruby 3.0/3.1
 # See : https://github.com/DMPRoadmap/roadmap/issues/3254
 gem 'mail', '2.7.1'
+
+
 
 # ================================= #
 # ENVIRONMENT SPECIFIC DEPENDENCIES #

@@ -1,6 +1,6 @@
 // Import locally defined variables. Load this before 'bootstrap'
 
-@use "variables";
+@forward "variables";
 
 @use "blocks";
 @use "utils";

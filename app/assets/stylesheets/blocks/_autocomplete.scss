@@ -5,7 +5,7 @@
 ul.ui-menu {
   width: 60%;
   list-style: none;
-  background: $color-secondary-background;
+  background: $color-secondary-background !important;
   padding-left: 0;
 
   .ui-menu-item {
