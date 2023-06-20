@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 
 ruby '>= 3.0'
 
-
-##### Upgrade to ruby 3  Roadmap v4.1.0
-gem 'rexml'
 # ===========#
 # CORE RAILS #
 # ===========#
