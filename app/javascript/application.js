@@ -54,7 +54,7 @@ import './src/orgs/adminEdit';
 import './src/orgs/shibbolethDs';
 import './src/plans/download';
 import './src/plans/editDetails';
-import './src/plans/index.js.erb';
+import './src/plans/index';
 import './src/plans/new';
 import './src/plans/share';
 import './src/publicTemplates/show';
