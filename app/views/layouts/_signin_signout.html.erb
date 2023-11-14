@@ -7,7 +7,7 @@
       <%= _('Language') %>
       <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" 
+    <ul class="dropdown-menu dropdown-menu-end" 
         data-bs-popper="static" aria-labelledby="language-menu">
       <% languages.each do |l| %>
         <li>
@@ -30,20 +30,20 @@
       <%= current_user.name(false) %>
       <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" 
+    <ul class="dropdown-menu dropdown-menu-end" 
         data-bs-popper="static" aria-labelledby="user-menu">
-      <li>
+      <li class="dropdown nav-item">
         <%= link_to '<i class="fas fa-square-pen" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Edit profile'), edit_user_registration_path, class: 'dropdown-item' %>
       </li>
-      <li>
+      <li class="dropdown nav-item">
         <%= link_to '<i class="fas fa-right-to-bracket" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </li>
     </ul>
   </li>
 <% else %>
   <% if !active_page?(root_path, true) %>
-    <li>
-      <a href="<%= root_path %>">
+    <li class="nav-item">
+      <a class="nav-link" href="<%= root_path %>">
         <i class="fas fa-right-to-bracket" aria-hidden="true">&nbsp;</i>
         <%= _('Sign in') %>
       </a>
