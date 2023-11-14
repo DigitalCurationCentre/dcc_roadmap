@@ -12,9 +12,9 @@
       <% languages.each do |l| %>
         <li>
           <% if I18n.locale == l.abbreviation %>
-            <%= link_to l.name, locale_path(l.abbreviation), method: :patch, class: 'active dropdown-item  px-3' %>
+            <%= link_to l.name, locale_path(l.abbreviation), method: :patch, class: 'active dropdown-item nav-link px-3' %>
           <% else %>
-            <%= link_to l.name, locale_path(l.abbreviation), method: :patch, class: 'dropdown-item  px-3' %>
+            <%= link_to l.name, locale_path(l.abbreviation), method: :patch, class: 'dropdown-item nav-link px-3' %>
           <% end %>
         </li>
       <% end %>
@@ -33,10 +33,10 @@
     <ul class="dropdown-menu dropdown-menu-end" 
         data-bs-popper="static" aria-labelledby="user-menu">
       <li class="dropdown nav-item">
-        <%= link_to '<i class="fas fa-square-pen" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Edit profile'), edit_user_registration_path, class: 'dropdown-item' %>
+        <%= link_to '<i class="fas fa-square-pen" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Edit profile'), edit_user_registration_path, class: 'nav-link dropdown-item px-3' %>
       </li>
       <li class="dropdown nav-item">
-        <%= link_to '<i class="fas fa-right-to-bracket" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        <%= link_to '<i class="fas fa-right-to-bracket" aria-hidden="true">&nbsp;</i>&nbsp;'.html_safe + _('Logout'), destroy_user_session_path, method: :delete, class: 'nav-link dropdown-item px-3' %>
       </li>
     </ul>
   </li>
