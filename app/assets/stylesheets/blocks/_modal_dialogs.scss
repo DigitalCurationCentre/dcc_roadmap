@@ -1,10 +1,17 @@
 @use '../variables/colours' as *;
 // Overrides Bootstrap 3.0's Modals
 
+.modal{
+  --bs-modal-border-radius: 0rem;
+}
+
 .modal-dialog {
   background-color: $color-secondary-background;
 }
 
+.modal-header > h2 {
+  font-size: 20px;
+}
 
 // Footer (for actions)
 .modal-footer {
