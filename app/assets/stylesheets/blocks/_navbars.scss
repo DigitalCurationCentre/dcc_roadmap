@@ -64,6 +64,17 @@
   }
 
   .navbar-nav {
+    .nav-item > a.has-new-window-popup-info {
+      color: $navbar-branding-link-color;
+     &:hover,
+     &:focus {
+       color: $navbar-branding-link-color;
+       background-color: transparent;
+     }
+   }
+ }
+
+  .navbar-nav {
     > li > a {
       color: $navbar-branding-link-color;
 
@@ -88,6 +99,10 @@
         color: $navbar-branding-link-disabled-color;
         background-color: $navbar-branding-link-disabled-bg;
       }
+    }
+
+    .navbar-right .nav-item .nav-link .has-new-window-popup-info {
+      background-color: pink;
     }
   }
 
