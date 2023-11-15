@@ -49,7 +49,7 @@
        org.build_tracker
      end %>
 
-  <div class="row">
+  <div class="d-inline-flex row">
     <div class="form-group mb-3 col-sm-8">
       <%= f.label :logo, _('Organization logo'), class: "control-label"  %>
 
@@ -109,7 +109,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="form-group mb-3 col-sm-4">
+    <div class="form-group mb-3 col-sm-4 pe-2">
       <%= f.label :contact_email, _('Contact email'), class: "control-label" %>
       <%= f.email_field :contact_email, class: "form-control", aria: { required: true } %>
     </div>
@@ -141,7 +141,7 @@
       <fieldset class="col-sm-8">
         <legend>
           <%= _('Organisation Types') %>
-            &nbsp; <a href="#" aria-label="<%= _('Text') %>" data-toggle="tooltip" data-placement="right" title="<%= org_types_tooltip %>">
+            &nbsp; <a href="#" aria-label="<%= _('Text') %>" data-bs-toggle="tooltip" data-placement="right" title="<%= org_types_tooltip %>">
             <i class="fas fa-circle-question fa-reverse" ></i>
             <em class="sr-only"></em>
           </a>

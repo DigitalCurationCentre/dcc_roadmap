@@ -23,14 +23,14 @@
       <% links = [{ "link" => "", "text" => "" }] if links.length == 0 %>
       <% links.each_with_index do |l, i| %>
         <div class="link row">
-          <div class="col-sm-5">
+          <div class="col-sm-5 pe-2">
             <div class="form-group mb-3 link-input">
               <%= label_tag "link_link#{i}", _('URL'), class: "control-label" %>
               <%= text_field_tag 'link_link', l['link'], class: "form-control",
                                                          id: "#{context}_link_link#{i}" %>
             </div>
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm-5 pe-2">
             <div class="form-group mb-3 link-input">
               <%= label_tag "link_text#{i}", _('Link text'), class: "control-label" %>
               <%= text_field_tag 'link_text', l['text'], class: "form-control",
