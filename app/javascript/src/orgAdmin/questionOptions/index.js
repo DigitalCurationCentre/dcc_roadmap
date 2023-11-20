@@ -1,7 +1,7 @@
 export default (context) => {
   $(`#${context} .delete_question_option`).on('click', (e) => {
     e.preventDefault();
-    const source = $(e.target).closest('[data-attribute="question_option"]');
+    const source = $(e.target).closest('[data-bs-attribute="question_option"]');
     source.find('.destroy-question-option').val(true);
     source.next().remove();
     source.remove();
@@ -10,7 +10,7 @@ export default (context) => {
   $(`#${context} .new_question_option`).on('click', (e) => {
     e.preventDefault();
     const source = e.target;
-    const last = $(source).closest('[data-attribute="question_options"]').find('[data-attribute="question_option"]').last();
+    const last = $(source).closest('[data-bs-attribute="question_options"]').find('[data-bs-attribute="question_option"]').last();
     const cloned = last.clone(true);
     const array = $(cloned).find('[id$="_number"]').prop('id').match(/_[\d]*?_+/);
 

@@ -9,15 +9,15 @@ export default function updateConditions(id) {
 
   // display conditions already saved
   if (addLogicButton.length > 0) {
-    if (addLogicButton.attr('data-loaded').toString() === 'true') {
+    if (addLogicButton.attr('data-bs-loaded').toString() === 'true') {
       addLogicButton.trigger('click');
     }
   }
 
-  // set up selectpicker select boxes for condition options
+  // set up form-select select boxes for condition options
   const setSelectPicker = () => {
-    $('.selectpicker.narrow').selectpicker({ width: 120 });
-    $('.selectpicker.regular').selectpicker({ width: 150 });
+    // $('.form-select.narrow').selectpicker({ width: 120 });
+    // $('.form-select.regular').selectpicker({ width: 150 });
   };
 
   // test if a webhook is selected and set up if so
@@ -78,7 +78,7 @@ export default function updateConditions(id) {
   // webhook form
   const webhookForm = (webhooks = false, selectObject = false) => {
     if (selectObject === false) {
-      $('.selectpicker.action-type').each((idx, selectObject2) => {
+      $('.form-select.action-type').each((idx, selectObject2) => {
         webhookSelected(selectObject2, webhooks[idx]);
       });
     } else {
@@ -88,7 +88,7 @@ export default function updateConditions(id) {
 
   // display conditions (editing) upon click of 'Add Conditions'
   parent.on('ajax:success', 'a.add-logic[data-remote="true"]', (e) => {
-    addLogicButton.attr('data-loaded', 'true');
+    addLogicButton.attr('data-bs-loaded', 'true');
     addLogicButton.addClass('disabled');
     addLogicButton.blur();
     addLogicButton.text('Conditions');
@@ -104,12 +104,12 @@ export default function updateConditions(id) {
     const conditionList = $(e.target).closest('#condition-container').find('.condition-list');
     const addDiv = $(e.target).closest('#condition-container').find('.add-condition-div');
     if (isObject(conditionList)) {
-      conditionList.attr('data-loaded', 'true');
+      conditionList.attr('data-bs-loaded', 'true');
       conditionList.append(e.detail[0].attachment_partial);
       addDiv.html(e.detail[0].add_link);
-      conditionList.attr('data-loaded', 'false');
+      conditionList.attr('data-bs-loaded', 'false');
       setSelectPicker();
-      const selectObject = conditionList.find('.selectpicker.action-type').last();
+      const selectObject = conditionList.find('.form-select.action-type').last();
       webhookForm(undefined, selectObject);
     }
   });

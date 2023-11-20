@@ -20,18 +20,18 @@
   <%= f.fields_for :question_options, options_q do |op| %>
     <% i = i + 1 %>
     <% options_q.number = i %>
-    <div class="row" data-attribute="question_option">
-      <div class="col-md-3">
+    <div class="row" data-bs-attribute="question_option">
+      <div class="col-md-3 pe-2">
         <%= op.number_field :number, min: 1, class: 'form-control', readonly: true %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 pe-2">
         <% if i == 1 %>
           <%= op.text_field :text, as: :string, class: 'form-control', spellcheck: true, 'aria-required': true %>
         <% else %>
           <%= op.text_field :text, as: :string, class: 'form-control', spellcheck: true %>
         <% end %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 pe-2">
         <%= op.check_box :is_default %>
       </div>
       <% if i > 1 %>

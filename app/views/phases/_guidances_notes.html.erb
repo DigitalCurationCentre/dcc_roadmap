@@ -13,7 +13,7 @@
     <% end %>
     <% if plan.present? %>
       <li role="presentation" class="nav-item">
-        <a class="nav-link<%= 'active' if !guidances_active %>" href="#notes-<%= question.id %>" aria-controls="notes-<%= question.id %>" role="tab" data-bs-toggle="pill">
+        <a class="nav-link <%= 'active' if !guidances_active %>" href="#notes-<%= question.id %>" aria-controls="notes-<%= question.id %>" role="tab" data-bs-toggle="pill">
           <span id="notes-title-<%= question.id %>">
             <%= render partial: '/notes/title', locals: { answer: answer } %>
           </span>

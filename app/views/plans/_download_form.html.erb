@@ -20,6 +20,7 @@
         <%= select_tag(:phase_id, options_for_select(@phase_options, @phase_options[0])) %>
       </div>
     <% else %>
+    <%= puts "phase >>>>",:phase_id, %>
       <%= hidden_field_tag(:phase_id, @phase_options[0][1]) %>
     <% end %>
     <fieldset>
