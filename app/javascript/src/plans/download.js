@@ -25,8 +25,8 @@ $(() => {
     if (frmt === 'csv') {
       if ($('#phase_id option').length > 1) {
         $('#phase_id').find('option[value="All"').hide();
-        $('#phase_id option:eq(1)').attr('selected', 'selected');
         $('#phase_id').val($('#phase_id option:eq(1)').val());
+        $('#phase_id option:eq(1)').attr('selected', 'selected');
       }
     } else if (frmt === 'pdf' || frmt === 'html' || frmt === 'docx' || frmt === 'text') {
       if ($('#phase_id option').length > 1) {
