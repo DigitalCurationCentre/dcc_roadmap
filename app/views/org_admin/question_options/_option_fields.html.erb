@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-md-3 bold">
+  <div class="col-md-3 bold mb-2">
     <%= _('Order')%>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 mb-2">
     <%= f.label(:text, _('Text'), class: "control-label") %>
   </div>
-  <div class="col-md-3 bold">
+  <div class="col-md-3 bold mb-2">
     <%= _('Default')%>
   </div>
   <div class="col-md-3">
@@ -20,7 +20,7 @@
   <%= f.fields_for :question_options, options_q do |op| %>
     <% i = i + 1 %>
     <% options_q.number = i %>
-    <div class="row" data-bs-attribute="question_option">
+    <div class="row mb-2" data-bs-attribute="question_option">
       <div class="col-md-3 pe-2">
         <%= op.number_field :number, min: 1, class: 'form-control', readonly: true %>
       </div>
@@ -44,7 +44,7 @@
   <% end %>
 <% end %>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 mt-2">
     <a href="#" class="new_question_option"><%= _('Add option') %></a>
   </div>
 </div>
