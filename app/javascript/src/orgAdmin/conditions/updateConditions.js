@@ -23,16 +23,12 @@ export default function updateConditions(id) {
   // test if a webhook is selected and set up if so
   const allowWebhook = (selectObject, webhook = false) => { // webhook false => new condition
     const condition = $(selectObject).closest('.condition-partial');
-    console.log("condition-partial", condition);
-    console.log("selectobject val:", $(selectObject).val());
     if (webhook === false) {
       if ($(selectObject).val() === 'add_webhook') { // condition type is webhook
         condition.find('.pseudo-webhook-btn').trigger('click');
-        console.log("added webhook");
       } else { // condition type is remove
         condition.find('.remove-dropdown').show();
         condition.find('.webhook-replacement').hide();
-        console.log("couldn't add webhook");
       }
     } else { // loading already saved conditions
       // populate webhook inputs
