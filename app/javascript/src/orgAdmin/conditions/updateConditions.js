@@ -14,10 +14,10 @@ export default function updateConditions(id) {
     }
   }
 
-  // set up selectpicker select boxes for condition options
+  // set up form-select select boxes for condition options
   const setSelectPicker = () => {
-    $('.selectpicker.narrow').selectpicker({ width: 120 });
-    $('.selectpicker.regular').selectpicker({ width: 150 });
+    // $('.form-select.narrow').selectpicker({ width: 120 });
+    // $('.form-select.regular').selectpicker({ width: 150 });
   };
 
   // test if a webhook is selected and set up if so
@@ -78,7 +78,7 @@ export default function updateConditions(id) {
   // webhook form
   const webhookForm = (webhooks = false, selectObject = false) => {
     if (selectObject === false) {
-      $('.selectpicker.action-type').each((idx, selectObject2) => {
+      $('.form-select.action-type').each((idx, selectObject2) => {
         webhookSelected(selectObject2, webhooks[idx]);
       });
     } else {
@@ -109,7 +109,7 @@ export default function updateConditions(id) {
       addDiv.html(e.detail[0].add_link);
       conditionList.attr('data-loaded', 'false');
       setSelectPicker();
-      const selectObject = conditionList.find('.selectpicker.action-type').last();
+      const selectObject = conditionList.find('.form-select.action-type').last();
       webhookForm(undefined, selectObject);
     }
   });
