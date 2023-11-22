@@ -20,7 +20,7 @@
   <%= f.fields_for :question_options, options_q do |op| %>
     <% i = i + 1 %>
     <% options_q.number = i %>
-    <div class="row mb-2" data-bs-attribute="question_option">
+    <div class="row mb-2" data-attribute="question_option">
       <div class="col-md-3 pe-2">
         <%= op.number_field :number, min: 1, class: 'form-control', readonly: true %>
       </div>
