@@ -10,7 +10,7 @@ export default function updateConditions(id) {
   // display conditions already saved
   if (addLogicButton.length > 0) {
     if (addLogicButton.attr('data-loaded').toString() === 'true') {
-      addLogicButton.trigger('click');
+      $(addLogicButton).click();
     }
   }
 
@@ -23,9 +23,12 @@ export default function updateConditions(id) {
   // test if a webhook is selected and set up if so
   const allowWebhook = (selectObject, webhook = false) => { // webhook false => new condition
     const condition = $(selectObject).closest('.condition-partial');
+
     if (webhook === false) {
       if ($(selectObject).val() === 'add_webhook') { // condition type is webhook
-        condition.find('.pseudo-webhook-btn').trigger('click');
+        // Retreive 'data-bs-target' for modal and create Jquery element
+        const associatedModal = $(condition.find('.pseudo-webhook-btn').attr('data-bs-target'));
+        associatedModal.modal('show');
       } else { // condition type is remove
         condition.find('.remove-dropdown').show();
         condition.find('.webhook-replacement').hide();
@@ -57,9 +60,11 @@ export default function updateConditions(id) {
       // display edit email section
       condition.find('.remove-dropdown').hide();
       condition.find('.webhook-replacement').show();
-      condition.find('.webhook-replacement').on('click', (event) => {
+      $(condition.find('.webhook-replacement')).on('click', (event) => {
         event.preventDefault();
-        condition.find('.pseudo-webhook-btn').trigger('click');
+        // Retreive 'data-bs-target' for modal and create Jquery element
+        const associatedModal1 = $(condition.find('.pseudo-webhook-btn').attr('data-bs-target'));
+        associatedModal1.modal('show');
       });
     }
   };
