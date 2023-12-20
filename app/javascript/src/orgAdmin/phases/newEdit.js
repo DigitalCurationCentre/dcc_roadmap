@@ -150,9 +150,9 @@ $(() => {
   });
 
   // Handle the section that has focus on initial page load
-  const currentSection = $('.section-group .in');
-  if (currentSection.length > 0) {
-    initSection(`${currentSection.attr('id')}`);
+  const currentUpdatedSection = $('.accordion-collapse.collapse.show');
+  if (currentUpdatedSection.length > 0) {
+    initSection(`${currentUpdatedSection.attr('id')}`);
   }
   // Handle the new section
   // initSection('#new_section_section_description');
