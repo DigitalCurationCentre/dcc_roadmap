@@ -32,6 +32,16 @@
                                panel_id: "baseline-sections",
                                modifiable: modifiable } %>
       <% end %>
+         <% suffix_sections.each do |s| %>
+        <%= render partial: "org_admin/sections/section_group",
+                   locals: { sections: Array(s),
+                             phase: phase,
+                             template: template,
+                             panel_id: "section-#{s.id}",
+                             current_section: current_section,
+                             modifiable: true } %>
+      <% end %>
+      </div>
       <%# locals modifiable %>
       <!-- Accordion for sections -->
       <div class="row">

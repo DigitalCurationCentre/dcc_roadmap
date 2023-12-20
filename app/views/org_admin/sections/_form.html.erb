@@ -9,7 +9,7 @@
   <div class="form-group mb-3 col-md-10" data-toggle="tooltip" title="<%= description_tooltip %>">
     <em class="sr-only"><%= description_tooltip %></em>
     <%= f.label(:description, _('Description'), class: "control-label") %>
-    <%= f.text_area(:description, class: "section") %>
+    <%= f.text_area(:description, class: "section", spellcheck: true) %>
   </div>
 
   <div class="form-group mb-3 col-md-10">
