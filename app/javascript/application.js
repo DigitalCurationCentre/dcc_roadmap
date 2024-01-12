@@ -63,6 +63,11 @@ import './src/usage/index';
 import './src/users/adminGrantPermissions';
 import './src/users/notificationPreferences';
 
+// ds-change-start
+import './src/orgs/idpselect';
+import './src/orgs/idpselect_config';
+// ds-change-end
+
 // OrgAdmin view specific JS
 import './src/orgAdmin/conditions/updateConditions';
 import './src/orgAdmin/phases/newEdit';
