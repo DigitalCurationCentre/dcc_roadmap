@@ -65,7 +65,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    //<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
       <div class="skip">
@@ -150,5 +150,6 @@
 
     <input type="hidden" id="js-constants" value="<%= constants_json %>" />
 
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </body>
 </html>
