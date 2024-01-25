@@ -255,7 +255,7 @@ module OrgAdmin
             .permit(:number, :text, :question_format_id, :option_comment_display,
                     :default_value,
                     question_identifiers_attributes: %i[id question_id value name _destroy],
-                    question_options_attributes: %i[id number text is_default _destroy],
+                    question_options_attributes: %i[id number text answer_identifier is_default _destroy],
                     annotations_attributes: %i[id text org_id org type _destroy],
                     theme_ids: [])
     end
