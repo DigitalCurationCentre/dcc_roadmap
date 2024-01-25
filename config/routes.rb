@@ -286,6 +286,10 @@ Rails.application.routes.draw do
 
     resources :question_options, only: [:destroy], controller: 'question_options'
 
+    #This is to allow the fields to be delete
+    resources :question_identifiers, only: [:destroy], controller: 'question_identifiers'
+
+
     resources :questions, only: [] do
       get 'open_conditions'
       resources :conditions, only: %i[new show]
