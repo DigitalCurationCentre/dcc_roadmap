@@ -14,6 +14,7 @@ module OrgAdmin
     def show
       question = Question.includes(:annotations,
                                    :question_options,
+                                   :question_identifiers,
                                    section: { phase: :template })
                          .find(params[:id])
       authorize question
@@ -44,6 +45,7 @@ module OrgAdmin
     def edit
       question = Question.includes(:annotations,
                                    :question_options,
+                                   :question_identifiers,
                                    section: { phase: :template })
                          .find(params[:id])
       authorize question
@@ -90,6 +92,9 @@ module OrgAdmin
       begin
         question = get_new(question)
         section = question.section
+
+        # question_identifier info to save
+        
         if question.save
           flash[:notice] = success_message(question, _('created'))
         else
@@ -111,6 +116,8 @@ module OrgAdmin
     # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     def update
       question = Question.find(params[:id])
+
+
       authorize question
 
       new_version = question.template.generate_version?
@@ -247,6 +254,7 @@ module OrgAdmin
       params.require(:question)
             .permit(:number, :text, :question_format_id, :option_comment_display,
                     :default_value,
+                    question_identifiers_attributes: %i[id question_id value name _destroy],
                     question_options_attributes: %i[id number text is_default _destroy],
                     annotations_attributes: %i[id text org_id org type _destroy],
                     theme_ids: [])
