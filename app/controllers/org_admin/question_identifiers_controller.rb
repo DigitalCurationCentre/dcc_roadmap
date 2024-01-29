@@ -3,6 +3,24 @@
 module OrgAdmin
     # Controller that handles question identifiers
     class QuestionIdentifiersController < ApplicationController
+        include QuestionIdentifiersHelper
+
+        # Code to generate the list of Question Identifiers
+        def list
+            #Get the template
+            question_identifier = QuestionIdentifier.find(params[:id])
+            template = Template.find(question_identifier.question.section.phase.template_id)
+        
+        
+            render json: {
+              'question_identifier' => {
+                'id' => user.id,
+                'html' => render_to_string(partial: 'org_admin/question_identifiers/_question_identifiers_list',
+                                           locals: { template: template },
+                                           formats: [:html])
+              }
+            }.to_json
+        end    
 
         # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         def destroy
