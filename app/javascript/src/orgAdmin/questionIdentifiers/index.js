@@ -8,7 +8,7 @@ export default (context) => {
   });
   $(`#${context} .new_question_identifier`).on('click', (ev) => {
     alert("I'm here");
-    ev.preventDefault();
+    // ev.preventDefault();
     // const source = e.target;
     // const last = $(source).closest('[data-attribute="question_identifier"]').find('[data-attribute="question_identifier"]').last();
     // const cloned = last.clone(true);

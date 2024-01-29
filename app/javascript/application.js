@@ -68,6 +68,7 @@ import './src/orgAdmin/conditions/updateConditions';
 import './src/orgAdmin/phases/newEdit';
 import './src/orgAdmin/phases/preview';
 import './src/orgAdmin/phases/show';
+import './src/orgAdmin/questionIdentifiers/index';
 import './src/orgAdmin/questionOptions/index';
 import './src/orgAdmin/questions/sharedEventHandlers';
 import './src/orgAdmin/sections/index';
