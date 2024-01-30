@@ -69,7 +69,7 @@ class Template < ApplicationRecord
 
   belongs_to :org
 
-  belongs_to :api_server
+  belongs_to :api_server, optional: true
 
   has_many :plans
 

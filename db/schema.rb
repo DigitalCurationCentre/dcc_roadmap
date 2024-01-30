@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_28_233752) do
+ActiveRecord::Schema.define(version: 2024_01_30_000333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -483,8 +483,8 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
     t.integer "family_id"
     t.boolean "archived"
     t.text "links"
-    t.bigint "api_servers_id"
-    t.index ["api_servers_id"], name: "index_templates_on_api_servers_id"
+    t.bigint "api_server_id"
+    t.index ["api_server_id"], name: "index_templates_on_api_server_id"
     t.index ["family_id", "version"], name: "index_templates_on_family_id_and_version", unique: true
     t.index ["family_id"], name: "index_templates_on_family_id"
     t.index ["org_id", "family_id"], name: "template_organisation_dmptemplate_index"
@@ -594,7 +594,7 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
   add_foreign_key "research_outputs", "licenses"
   add_foreign_key "roles", "plans"
   add_foreign_key "sections", "phases"
-  add_foreign_key "templates", "api_servers", column: "api_servers_id"
+  add_foreign_key "templates", "api_servers"
   add_foreign_key "templates", "orgs"
   add_foreign_key "themes_in_guidance", "guidances"
   add_foreign_key "themes_in_guidance", "themes"
