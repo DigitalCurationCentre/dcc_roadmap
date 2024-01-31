@@ -7,6 +7,7 @@ export default (context) => {
     source.remove();
     // $(source).closest('[data-attribute="question_option"]').remove();
   });
+  
   $(`#${context} .new_question_option`).on('click', (e) => {
     e.preventDefault();
     const source = e.target;
