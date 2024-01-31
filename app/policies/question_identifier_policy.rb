@@ -15,4 +15,9 @@ class QuestionIdentifierPolicy < ApplicationPolicy
     @user.can_modify_templates? &&
       (@record.question.section.phase.template.org_id == @user.org_id)
   end
+
+  def list?
+    @user.can_modify_templates? &&
+      (@record.question.section.phase.template.org_id == @user.org_id)
+  end
 end

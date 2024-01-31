@@ -18,10 +18,8 @@
     <% q.question_identifiers.each {|qopt| qopt.id=0} %> 
 <% end %>
 
- <% i = 0 %>
 <% q.question_identifiers.to_a.each do |q_identifiers| %>
     <%= f.fields_for :question_identifiers, q_identifiers do |op| %>  
-         <% i = i + 1 %>
         <div class="row mb-2" data-attribute="question_identifier">
             <div class="col-md-3 pe-2">
                 <%= op.text_field :value, as: :string, class: 'form-control', spellcheck: true %>
@@ -29,12 +27,10 @@
             <div class="col-md-3 pe-2">
                 <%= op.text_field :name, as: :string, class: 'form-control', spellcheck: true %>
             </div>
-            <% if i > 1 %>
-                <div class="col-md-3">
-                    <%= op.hidden_field :_destroy, class: 'destroy-question-identifier' %>
-                    <%= link_to _('Remove'), org_admin_question_identifier_path(q_identifiers), method: :delete %>
-                </div>   
-            <% end %>
+            <div class="col-md-3">
+                <%= op.hidden_field :_destroy, class: 'destroy-question-identifier' %>
+                <%= link_to _('Remove'), org_admin_question_identifier_path(q_identifiers), method: :delete %>
+            </div>   
         </div>      
     <% end %>      
 <% end %>  
@@ -46,11 +42,11 @@
 <div class="row">
     <div class="col-md-3 mb-2">
         <a href="#" class="new_question_identifier"><%= _('Add new Question Identifier') %></a>
-        
     </div>
+</div>   
+<div class="row">     
     <div class="col-md-3 mb-2">
-        <!--%= link_to _('Question Identifiers List'), question_identifiers_list_path(template)%-->
-        Question Identifiers List
+        <%= link_to( _('Question Identifiers List'), list_org_admin_question_identifier_path(template)) %>
     </div>
 </div> 
 

@@ -24,13 +24,7 @@ class QuestionIdentifier < ApplicationRecord
 
   belongs_to :question
   
-  # ===============
-  # = Validations =
-  # ===============
-
-  validates :name, presence: { message: PRESENCE_MESSAGE }
-                                  
-  validates :value, presence: { message: PRESENCE_MESSAGE }
+  
    
 end
   

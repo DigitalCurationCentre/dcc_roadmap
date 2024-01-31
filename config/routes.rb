@@ -286,8 +286,14 @@ Rails.application.routes.draw do
 
     resources :question_options, only: [:destroy], controller: 'question_options'
 
-    #This is to allow the fields to be delete
-    resources :question_identifiers, only: [:destroy , :list], controller: 'question_identifiers'
+    #This is to allow the fields to be delete and list all Question Identifiers
+    resources :question_identifiers, only: [], controller: 'question_identifiers' do
+      member do
+        get 'list'
+        delete 'destroy'
+      end
+    end
+    #resources :question_identifiers, only: %i[destroy list], controller: 'question_identifiers'
 
 
     resources :questions, only: [] do
