@@ -11,13 +11,12 @@ module OrgAdmin
             template = Template.find(params[:id])
         
             render json: {
-              'template' => {
-                'id' => template.id,
-                'html' => render_to_string(partial: 'org_admin/question_identifiers/question_identifiers_list',
-                                           locals: { template: template },
-                                           formats: [:html])
-              }
-            }.to_json
+                success: true, 
+                html: render_to_string(partial: 'org_admin/question_identifiers/question_identifiers_list',
+                    locals: { template: template }), 
+                message: "Question Identifiers list!" 
+            }
+           
         end    
 
         # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
