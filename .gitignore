@@ -120,11 +120,10 @@ yarn-debug.log*
 cloud9-start.sh
 
 # Ignore customisation files that do not have a roadmap counterpart
+# general 
 app/assets/fonts/Cabin-Regular.ttf
 app/assets/images/powered_by_DMP_grey.png
-app/controllers/frih_service_controller.rb
+# dmptuuli-research.fi interoperation
 app/controllers/research_fi_service_controller.rb
-app/javascript/src/plans/call_frih_service.js
 app/javascript/src/plans/call_research_fi_service.js
-app/config/initializers/external_apis/frih.rb
 config/initializers/external_apis/research_fi.rb
