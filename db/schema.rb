@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_18_094956) do
+ActiveRecord::Schema.define(version: 2024_01_28_233752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2024_01_18_094956) do
     t.datetime "updated_at", null: false
     t.integer "org_id"
     t.index ["name"], name: "index_api_clients_on_name"
+  end
+
+  create_table "api_servers", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "conditions", id: :serial, force: :cascade do |t|
@@ -246,7 +253,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_094956) do
     t.text "feedback_msg"
     t.boolean "managed", default: false, null: false
     t.string "helpdesk_email"
-    t.boolean "add_question_identifiers"
+    t.boolean "add_question_identifiers", default: false, null: false
   end
 
   create_table "perms", id: :serial, force: :cascade do |t|
@@ -331,7 +338,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_094956) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "versionable_id", limit: 36
-    t.string "answer_identifer"
+    t.string "answer_identifier"
     t.index ["question_id"], name: "index_question_options_on_question_id"
     t.index ["versionable_id"], name: "index_question_options_on_versionable_id"
   end
@@ -484,6 +491,8 @@ ActiveRecord::Schema.define(version: 2024_01_18_094956) do
     t.integer "family_id"
     t.boolean "archived"
     t.text "links"
+    t.bigint "api_server_id"
+    t.index ["api_server_id"], name: "index_templates_on_api_server_id"
     t.index ["family_id", "version"], name: "index_templates_on_family_id_and_version", unique: true
     t.index ["family_id"], name: "index_templates_on_family_id"
     t.index ["org_id", "family_id"], name: "template_organisation_dmptemplate_index"
@@ -596,6 +605,7 @@ ActiveRecord::Schema.define(version: 2024_01_18_094956) do
   add_foreign_key "roles", "plans"
   add_foreign_key "roles", "users"
   add_foreign_key "sections", "phases"
+  add_foreign_key "templates", "api_servers"
   add_foreign_key "templates", "orgs"
   add_foreign_key "themes_in_guidance", "guidances"
   add_foreign_key "themes_in_guidance", "themes"
