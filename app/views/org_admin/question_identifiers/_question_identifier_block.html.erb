@@ -35,9 +35,6 @@
     <% end %>      
 <% end %>  
 
-<!-- Get the template -->
-<% template = find_question_id_template(q.section.phase.template_id) %>
-<%= template.id%>
 <!-- block responsible to add a new pair of Question Identifiers -->
 <div class="row">
     <div class="col-md-3 mb-2">
@@ -46,7 +43,8 @@
 </div>   
 <div class="row">     
     <div class="col-md-3 mb-2">
-        <%= link_to( _('Question Identifiers List'), list_org_admin_question_identifier_path(template)) %>
+       <button type="button" class="btn btn-primary" id="link_to_question_identifiers_list" data-bs-toggle="modal" data-bs-target="#questionIdentifiersListModal" data-remote="true" data-template-id="<%= q.section.phase.template_id %>"><%= _('Question Identifiers List')%></button>
+         <%= render "/org_admin/question_identifiers/question_identifiers_list" %>
     </div>
 </div> 
 

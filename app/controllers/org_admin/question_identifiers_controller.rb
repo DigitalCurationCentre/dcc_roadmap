@@ -7,17 +7,31 @@ module OrgAdmin
 
         # Code to generate the list of Question Identifiers
         def list
-            #Get the template
+            #returns html list of Question Identifiers for the template
             template = Template.find(params[:id])
+            html = template.html_question_identifiers_list(template.id)
         
             render json: {
                 success: true, 
-                html: render_to_string(partial: 'org_admin/question_identifiers/question_identifiers_list',
-                    locals: { template: template }), 
-                message: "Question Identifiers list!" 
-            }
-           
+                html: html
+            } 
         end    
+
+        # PDF export question identifiers list  
+        def export_pdf_list
+              #returns html list of Question Identifiers for the template
+            question = Question.find(params[:id])
+            template = question.template
+            @html_object = template.html_question_identifiers_list(template.id)
+            
+            pdf = WickedPdf.new.pdf_from_string(@html_object)
+          
+            send_data pdf, filename: "question_identifiers_list.pdf", type: "application/pdf", disposition: "attachment"
+             
+
+            
+          end
+
 
         # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         def destroy
@@ -45,4 +59,6 @@ module OrgAdmin
         # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
     
     end
+
+    
 end

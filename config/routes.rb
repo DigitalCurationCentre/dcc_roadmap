@@ -290,11 +290,11 @@ Rails.application.routes.draw do
     resources :question_identifiers, only: [], controller: 'question_identifiers' do
       member do
         get 'list'
+        get 'export_pdf_list'
         delete 'destroy'
       end
     end
-    #resources :question_identifiers, only: %i[destroy list], controller: 'question_identifiers'
-
+    
 
     resources :questions, only: [] do
       get 'open_conditions'
