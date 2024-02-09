@@ -1,23 +1,24 @@
-<div class="modal fade" id="questionIdentifiersListModal" tabindex="-1" role="dialog" aria-labelledby="questionIdentifiersListLabel" aria-hidden="true">
+
+<div class="modal fade" id="questionIdentifiersListModal" role="dialog" tabindex="-1" aria-labelledby="questionIdentifiersListModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
       <div class="modal-header">
-          <h2 class="modal-title" id="questionIdentifiersListModalLabel"><%= _('Question Identifiers List for %{template_name}') % { template_name: template.title } %></h2>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h2 class="modal-title" id="questionIdentifiersListModalLabel"><%= _('Question Identifiers List ') %></h2>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
       </div>
 
-      <div class="modal-body" style="text-align: left">
-          test
+      <div class="modal-body" id="questionIdentifiersListBody" style="text-align: left">
+
       </div>
 
       <div class="modal-footer">
-          <!--% 
-          <%= link_to _('Download'), class: "btn btn-primary" %>
-          <%= button_tag(_('Close'), class: 'btn btn-primary', 'data-dismiss': 'modal') %> 
-          -->
+          <%= link_to _('Download list'), export_pdf_list_org_admin_question_identifier_path(), class: "btn btn-primary", id: "export_pdf_list_link" %>
+          <button type="button" class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+            <%= _('Close')%>
+          </button>
       </div>
     </div>
   </div>

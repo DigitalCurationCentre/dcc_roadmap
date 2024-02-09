@@ -24,7 +24,12 @@ class QuestionIdentifier < ApplicationRecord
 
   belongs_to :question
   
-  
-   
+# ===========================
+# = Public instance methods =
+# ===========================  
+
+
+
+
 end
   
