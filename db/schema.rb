@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2024_01_30_000333) do
 
   # These are extensions that must be enabled in order to support this database
@@ -255,6 +256,7 @@ ActiveRecord::Schema.define(version: 2024_01_30_000333) do
     t.text "feedback_msg"
     t.boolean "managed", default: false, null: false
     t.string "helpdesk_email"
+    t.boolean "add_question_identifiers", default: false, null: false
   end
 
   create_table "perms", id: :serial, force: :cascade do |t|
@@ -323,6 +325,14 @@ ActiveRecord::Schema.define(version: 2024_01_30_000333) do
     t.integer "formattype", default: 0
   end
 
+  create_table "question_identifiers", force: :cascade do |t|
+    t.integer "question_id"
+    t.string "value"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "question_options", id: :serial, force: :cascade do |t|
     t.integer "question_id"
     t.string "text"
@@ -331,6 +341,7 @@ ActiveRecord::Schema.define(version: 2024_01_30_000333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "versionable_id", limit: 36
+    t.string "answer_identifier"
     t.index ["question_id"], name: "index_question_options_on_question_id"
     t.index ["versionable_id"], name: "index_question_options_on_versionable_id"
   end
@@ -568,6 +579,7 @@ ActiveRecord::Schema.define(version: 2024_01_30_000333) do
   add_foreign_key "annotations", "questions"
   add_foreign_key "answers", "plans"
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "answers_question_options", "answers"
   add_foreign_key "answers_question_options", "question_options"
   add_foreign_key "conditions", "questions"

@@ -23,6 +23,14 @@
       <%= f.text_area(:text, class: "question", spellcheck: true, "aria-required": true) %>
     </div>
 
+    <!--Question Identifiers block - This verifies if org has permission to add question Identifiers-->
+    <% org = Org.find(question.section.phase.template.org_id)%>
+    <% if org.can_add_question_identifiers? %>
+      <div class="form-group mb-3 col-md-10" data-attribute="question_identifier">
+          <%= render "/org_admin/question_identifiers/question_identifier_block", f: f, q: question %>
+      </div> 
+    <% end %>
+
     <!-- Question format -->
     <div class="form-group mb-3 col-md-4">
       <%= f.label(:question_format_id, _('Answer format'), class: "control-label") %>

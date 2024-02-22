@@ -486,6 +486,33 @@ class Template < ApplicationRecord
     end
   end
 
+  # This method is reponsible to generate the Question Identifiers list 
+  # for one template. It returns a html formated list.
+  def html_question_identifiers_list(template_id)
+    #Get the template
+    template = Template.find(template_id)
+
+    questions = template.questions
+
+    html = "<ul class=\"list-group\">"
+    for question in questions do
+        clean_question_text = question.text.gsub(/<p>(.*?)<\/p>/, "\\1")
+        html += "<div class=\"col-md-8\">
+        <label>Question %{question_number} - %{question_text}</label>
+        </div>" % { question_number: question.number, question_text: clean_question_text }
+        
+      for qid in question.question_identifiers do
+        html += "<li class=\"list-group-item\" style=\"border: none\">Identifier Value: %{identifier_value}</li>" % { identifier_value: qid.value }
+        html += "<li class=\"list-group-item\" style=\"border: none\">Identifier Name: %{identifier_name}</li>" % { identifier_name: qid.name }
+        html += "<li class=\"list-group-item\" style=\"border: none\"> </li>"
+        end
+    end
+    html += "</ul>"
+  end   
+
+  
+
+
   private
 
   # ============================
