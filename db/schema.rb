@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_28_233752) do
+
+ActiveRecord::Schema.define(version: 2024_01_30_000333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +64,8 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
   create_table "api_servers", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "client_id"
+    t.string "client_secret"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -448,7 +451,7 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|
-    t.string "session_id", null: false
+    t.string "session_id", limit: 64, null: false
     t.text "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -583,7 +586,6 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
   add_foreign_key "guidance_groups", "orgs"
   add_foreign_key "guidances", "guidance_groups"
   add_foreign_key "notes", "answers"
-  add_foreign_key "notes", "users"
   add_foreign_key "notification_acknowledgements", "notifications"
   add_foreign_key "notification_acknowledgements", "users"
   add_foreign_key "org_token_permissions", "orgs"
@@ -603,7 +605,6 @@ ActiveRecord::Schema.define(version: 2024_01_28_233752) do
   add_foreign_key "research_domains", "research_domains", column: "parent_id"
   add_foreign_key "research_outputs", "licenses"
   add_foreign_key "roles", "plans"
-  add_foreign_key "roles", "users"
   add_foreign_key "sections", "phases"
   add_foreign_key "templates", "api_servers"
   add_foreign_key "templates", "orgs"
