@@ -23,12 +23,33 @@ class QuestionIdentifier < ApplicationRecord
   # ================
 
   belongs_to :question
+
+  # ===============
+  # = Validations =
+  # ===============
+
+  validate :value_unique_within_template
+  
+  validate :name_unique_within_template
   
 # ===========================
-# = Public instance methods =
+# = Private instance methods =
 # ===========================  
+private
 
+def value_unique_within_template
+  template_id = question.section.phase.template_id 
+  if QuestionIdentifier.exists?(value: value, question_id: question_id, question: Question.where(section: Section.where(phase: Phase.where(template_id: template_id))))
+    errors.add('', UNIQUENESS_MESSAGE)
+  end
+end
 
+def name_unique_within_template
+  template_id = question.section.phase.template_id 
+  if QuestionIdentifier.exists?(name: name, question_id: question_id, question: Question.where(section: Section.where(phase: Phase.where(template_id: template_id))))
+    errors.add('',UNIQUENESS_MESSAGE)
+  end
+end
 
 
 end

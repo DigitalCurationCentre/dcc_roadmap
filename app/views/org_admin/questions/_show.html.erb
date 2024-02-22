@@ -20,22 +20,24 @@
           </dd>
           <!--Question Identifiers block - This verifies if org has permission to add question Identifiers-->
           <% org = Org.find(question.section.phase.template.org_id)%>
-          <% if org.can_add_question_identifiers? %>
+          <% if org.can_add_question_identifiers? && question.question_identifiers.present? %>
             <dt><%= _('Question Identifiers')%></dt>
             <% question.question_identifiers.to_a.each do |q_identifier| %>
               <dd><%= raw _('<b>Value:</b>')%> <%= q_identifier.value %></dd>
               <dd><%= raw _('<b>Name:</b>')%> <%= q_identifier.name %></dd>
-            <% end %>    
+            <% end %>  
+            <br>  
           <% end %>
           <!-- question.option_based? -->
           <% if question.option_based? %>
             <dt><%= _('Question options') %></dt>
             <dd><%= question.question_options.order(:number).collect(&:text).join(', ') %></dd>
+            <br>
           <% end %>
           <!-- Default value -->
           <% if q_format.textfield? || q_format.textarea? %>
-            <% if !question.default_value.nil? %>
-              <dt><%= _('Default value')%></dt>
+            <% if !question.default_value.nil? && !question.default_value.empty? %>
+              <dt><%= _('Default value') %></dt>
               <dd>
                 <% if q_format.textarea?  %>
                   <div class="display-readonly-textarea-content">
@@ -57,6 +59,7 @@
               <%= _('No additional comment area will be displayed.')%>
             <% end %>
           </dd>
+          <br>
 
           <!-- question conditions -->
           <% if conditions.count > 0 %>

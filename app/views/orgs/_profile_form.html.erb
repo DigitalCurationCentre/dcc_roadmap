@@ -139,13 +139,13 @@
   <div class="row">
     <% if current_user.can_super_admin? %>
       <fieldset class="col-sm-8">
-        <legend>
+        <h3>
           <%= _('Organisation Types') %>
             &nbsp; <a href="#" aria-label="<%= _('Text') %>" data-bs-toggle="tooltip" data-placement="right" title="<%= org_types_tooltip %>">
             <i class="fas fa-circle-question fa-reverse" ></i>
             <em class="sr-only"></em>
           </a>
-        </legend>
+        </h3>
         <div class="checkbox">
           <%= f.label :funder do %>
             <%= f.check_box :funder, { class: 'org_types', value: org.funder? }, "true", "false" %>
@@ -189,9 +189,9 @@
   <div class="row">
     <% if current_user.can_super_admin? %>
       <fieldset class="col-sm-8">
-        <legend>
+        <h3>
           <%= _('Organisation Permissions') %>
-        </legend>
+        </h3>
         <div class="checkbox">
           <%= f.label :add_question_identifiers do %>
             <%= f.check_box :add_question_identifiers, { class: 'org_types', value: org.add_question_identifiers?  }, "true", "false" %>
