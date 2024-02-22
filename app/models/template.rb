@@ -19,6 +19,7 @@
 #  updated_at       :datetime
 #  family_id        :integer
 #  org_id           :integer
+#  api_server_id       :integer
 #
 # Indexes
 #
