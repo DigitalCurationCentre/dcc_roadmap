@@ -41,12 +41,14 @@
         <a href="#" class="new_question_identifier"><%= _('Add new Question Identifier') %></a>
     </div>
 </div>   
-<div class="row">     
-    <div class="col-md-3 mb-2">
-       <button type="button" class="btn btn-primary" id="link_to_question_identifiers_list" data-bs-toggle="modal" data-bs-target="#questionIdentifiersListModal" data-remote="true" data-template-id="<%= q.section.phase.template_id %>"><%= _('Question Identifiers List')%></button>
-         <%= render "/org_admin/question_identifiers/question_identifiers_list" %>
-    </div>
-</div> 
+<% if q.question_identifiers.count > 0 %>
+    <div class="row">     
+       <div class="col-md-3 mb-2">
+            <button type="button" class="btn btn-primary" id="link_to_question_identifiers_list" data-bs-toggle="modal" data-bs-target="#questionIdentifiersListModal" data-remote="true" data-template-id="<%= q.section.phase.template_id %>"><%= _('Question Identifiers List')%></button>
+            <%= render "/org_admin/question_identifiers/question_identifiers_list" %>
+       </div>
+    </div> 
+<% end %> 
 
  
 
